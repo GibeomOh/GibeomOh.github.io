@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book</title>
+    <description>A simple Jekyll theme</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 12 Jan 2016 01:27:09 +0900</pubDate>
+    <lastBuildDate>Tue, 12 Jan 2016 01:27:09 +0900</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Facebook Like Button for the Web</title>
+        <description>&lt;h2 id=&quot;step-by-step&quot;&gt;Step-by-Step&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose URL or Page
+Pick the URL of a website or Facebook Page you want to use with the like button.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Code Configurator
+Paste the URL to the &lt;a href=&quot;https://developers.facebook.com/docs/plugins/like-button#configurato&quot;&gt;code configurator&lt;/a&gt; and adjust settings like the &lt;code class=&quot;highlighter-rouge&quot;&gt;width&lt;/code&gt; of your like button. Click the &lt;code class=&quot;highlighter-rouge&quot;&gt;Get Code&lt;/code&gt; button to generate your like button code.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Copy &amp;amp; Paste HTML snippet
+Copy and past the snippet into the HTML of the destination website.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;full-code-example&quot;&gt;Full Code Example&lt;/h2&gt;
+&lt;p&gt;Copy &amp;amp; paste the code example to your website. Adjust the value &lt;code class=&quot;highlighter-rouge&quot;&gt;data-href&lt;/code&gt; to your website URL. Next use the &lt;code class=&quot;highlighter-rouge&quot;&gt;og:***&lt;/code&gt; meta tags to adjust your link preview. &lt;code class=&quot;highlighter-rouge&quot;&gt;og:url&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;data-href&lt;/code&gt; should use the same URL.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!-- Load Facebook SDK for JavaScript --&amp;gt;
+&amp;lt;div id=&quot;fb-root&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;script&amp;gt;(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = &quot;//connect.facebook.net/en_US/sdk.js#xfbml=1&quot;;
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));&amp;lt;/script&amp;gt;
+
+&amp;lt;!-- Your like button code --&amp;gt;
+&amp;lt;div class=&quot;fb-like&quot; 
+	data-href=&quot;http://www.your-domain.com/your-page.html&quot; 
+	data-layout=&quot;standard&quot; 
+	data-action=&quot;like&quot; 
+	data-show-faces=&quot;true&quot;&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 12 Jan 2016 00:00:00 +0900</pubDate>
+        <link>/tech/2016/01/12/book-style-doc.html</link>
+        <guid isPermaLink="true">/tech/2016/01/12/book-style-doc.html</guid>
+        
+        <category>facebook</category>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>A Jekyll Theme Named Book</title>
+        <description>&lt;p&gt;Simple is better, but many themes are over designed. So, &lt;a href=&quot;https://github.com/kkninjae/book&quot;&gt;Book&lt;/a&gt; is built.&lt;/p&gt;
+
+&lt;h2 id=&quot;get-started&quot;&gt;Get started&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;fork the &lt;a href=&quot;https://github.com/kkninjae/book/fork&quot;&gt;repo&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;clone &lt;code class=&quot;highlighter-rouge&quot;&gt;git clone https://github.com/username/book&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve -w&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt; should be ready.&lt;/p&gt;
+
+&lt;h2 id=&quot;customize&quot;&gt;Customize&lt;/h2&gt;
+
+&lt;h3 id=&quot;configyml-file&quot;&gt;_config.yml file&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;title: site name&lt;/li&gt;
+  &lt;li&gt;description: site description&lt;/li&gt;
+  &lt;li&gt;url: site url&lt;/li&gt;
+  &lt;li&gt;avatar: absolute path of avatar which is a picture (140px * 140px) on the index page.&lt;/li&gt;
+  &lt;li&gt;favicon: absolute path of site favicon&lt;/li&gt;
+  &lt;li&gt;google_analytics: id for google analystics&lt;/li&gt;
+  &lt;li&gt;disqus_shortname: shortname of disque comment system&lt;/li&gt;
+  &lt;li&gt;about: content on the about page.
+you can write more than one paragraph but the format should be like the original one.
+the special word &lt;code class=&quot;highlighter-rouge&quot;&gt;?link?&lt;/code&gt; will be replaced by one of the links which are listed under links.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;warning&quot;&gt;warning&lt;/h3&gt;
+
+&lt;p&gt;Please do not delete the first two lines of style.css file.&lt;/p&gt;
+
+&lt;h2 id=&quot;end&quot;&gt;End.&lt;/h2&gt;
+
+&lt;p&gt;If you like it, &lt;a href=&quot;https://github.com/kkninjae/book&quot;&gt;star&lt;/a&gt; it :).&lt;/p&gt;
+
+&lt;p&gt;If you have a problem, &lt;a href=&quot;https://github.com/kkninjae/book/issues&quot;&gt;github issue is ready&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 28 Aug 2015 00:00:00 +0900</pubDate>
+        <link>/blog/2015/08/28/jekyll-theme-book.html</link>
+        <guid isPermaLink="true">/blog/2015/08/28/jekyll-theme-book.html</guid>
+        
+        <category>english</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+  </channel>
+</rss>
