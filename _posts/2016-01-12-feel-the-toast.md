@@ -9,7 +9,7 @@ category: thinking
 Summary
 --------
 2015년 10월 29일 목요일, Feel the TOAST 전형 후기.
-![invite_feel_the_toast](/assets/img/invite_feel_the_toast.jpg)
+![invite](/assets/img/invite_feel_the_toast.jpg)
 
 Pre-Test 전형 합격
 -------------------
