@@ -5,112 +5,77 @@
     <description>A simple Jekyll theme</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 12 Jan 2016 01:27:09 +0900</pubDate>
-    <lastBuildDate>Tue, 12 Jan 2016 01:27:09 +0900</lastBuildDate>
+    <pubDate>Wed, 13 Jan 2016 01:16:07 +0900</pubDate>
+    <lastBuildDate>Wed, 13 Jan 2016 01:16:07 +0900</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>Facebook Like Button for the Web</title>
-        <description>&lt;h2 id=&quot;step-by-step&quot;&gt;Step-by-Step&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Choose URL or Page
-Pick the URL of a website or Facebook Page you want to use with the like button.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Code Configurator
-Paste the URL to the &lt;a href=&quot;https://developers.facebook.com/docs/plugins/like-button#configurato&quot;&gt;code configurator&lt;/a&gt; and adjust settings like the &lt;code class=&quot;highlighter-rouge&quot;&gt;width&lt;/code&gt; of your like button. Click the &lt;code class=&quot;highlighter-rouge&quot;&gt;Get Code&lt;/code&gt; button to generate your like button code.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Copy &amp;amp; Paste HTML snippet
-Copy and past the snippet into the HTML of the destination website.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+        <title>Feel the TOAST를 마치고..</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;2015년 10월 29일 목요일, Feel the TOAST 전형 후기.
+&lt;img src=&quot;/assets/img/invite_feel_the_toast.jpg&quot; alt=&quot;invite_feel_the_toast&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;full-code-example&quot;&gt;Full Code Example&lt;/h2&gt;
-&lt;p&gt;Copy &amp;amp; paste the code example to your website. Adjust the value &lt;code class=&quot;highlighter-rouge&quot;&gt;data-href&lt;/code&gt; to your website URL. Next use the &lt;code class=&quot;highlighter-rouge&quot;&gt;og:***&lt;/code&gt; meta tags to adjust your link preview. &lt;code class=&quot;highlighter-rouge&quot;&gt;og:url&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;data-href&lt;/code&gt; should use the same URL.&lt;/p&gt;
+&lt;h2 id=&quot;pre-test--&quot;&gt;Pre-Test 전형 합격&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;2015년 10월 23일, 생각보다 난이도가 괜찮았지만, 그렇기 때문에 커트라인이 높아 
+걱정했던 Pre-Test 합격 발표는 정말 기뻤다. 취업을 시작하고 일정이 다소 빨라 
+처음으로 받은 합격이었기 때문에 더 기쁠 수밖에 없었던 것 같다. Pre-Test 합격 후 Feel the TOAST 
+전형까지 남은 기간은 6일, 코드 리뷰와 기술 면접을 준비하기 위해 학교 전공 서적을 다시 펼쳐 공부했다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!-- Load Facebook SDK for JavaScript --&amp;gt;
-&amp;lt;div id=&quot;fb-root&quot;&amp;gt;&amp;lt;/div&amp;gt;
-&amp;lt;script&amp;gt;(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = &quot;//connect.facebook.net/en_US/sdk.js#xfbml=1&quot;;
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));&amp;lt;/script&amp;gt;
+&lt;h2 id=&quot;feel-the-toast-&quot;&gt;Feel the TOAST 코드리뷰&lt;/h2&gt;
+&lt;p&gt;회사 소개를 마치고, 코드리뷰를 위해 3시간 동안 주어진 과제를 수행했다.
+내가 받은 과제를 직접적으로 작성할 순 없지만, 학교에서 배웠던 정도로
+충분히 수행 가능한 과제가 나왔다. 나중에 알게 된 얘기지만 요일별로 과제가
+달랐다고 하니 어느 정도 운도 있어야 했던 것 같다.
+확실히 주어진 시간 내에 정해진 과제를 수행하는 작업은 심리적으로 압박감을 많이 느꼈다.
+학교에서도 하루 만에 그것도 3시간 안에 수행하는 과제는 없었기에 잘 떨지 않은 성격이라고 
+생각했지만 심장이 두근두근했다.
+여기서 한 번 느꼈던 것은 기술면접에서 C보다 JAVA를 사용했으면 보다 더 편하게 처리했을 꺼라 생각했다.
+시간 내에 주어진 요구사항을 마치고 실무에 계신 분들과 함께 과제를 수행했던 분들 앞에서 
+내 코드를 설명할 때는 발가벗은 느낌이 났다.
+긴 시간은 아니었지만 다른 사람과 코드를 비교하고 리뷰를 받고, 또 평가로 이루어지기 
+때문에 끝나고는 한 산을 넘은 것 같았다.&lt;/p&gt;
 
-&amp;lt;!-- Your like button code --&amp;gt;
-&amp;lt;div class=&quot;fb-like&quot; 
-	data-href=&quot;http://www.your-domain.com/your-page.html&quot; 
-	data-layout=&quot;standard&quot; 
-	data-action=&quot;like&quot; 
-	data-show-faces=&quot;true&quot;&amp;gt;
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;h2 id=&quot;feel-the-toast--1&quot;&gt;Feel the TOAST 기술면접&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;코드 리뷰를 마치고 찾아온 기술면접 시간… 앞선 과제 수행에서도 긴장을 많이 했지만 또 
+이렇게 떨리는 시간이 될 줄 몰랐다. 면접관님께서 질문하신 내용을 적을 순 없지만, 그 
+동안 학교에서 배웠던 것을 확인하고 창의적이게 말해야 하는 것과 네트워크와 서버 관련해서 
+실무에서 대략적으로 쓰이고 있는 방법을 배운 것을 토대로 잘 표현해야 하는 능력을 보신 것 
+같다. 대답을 하면 할수록 더 깊은 질문을 하시는 것을 보면서 갈수록 내가 쪼그라드는 
+느낌을 받았다. 그 길다고 생각했던 1시간이 정말 이렇게 빨리 지나갈 줄은 몰랐다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;최종발표&lt;/h2&gt;
+&lt;p&gt;기술면접에서 자신감을 얻지 못해서인지 아슬아슬했던 나에게 Feel the TOAST 전형 합격은 정말 기뻤다.
+코드리뷰와 기술면접 피드백을 내용을 보며 합격의 기쁨과 함께 더 준비해야 한다는 생각을 함께 받았다.
+Feel the TOAST 전형이 나에게 많은 도움이 되어서인지 최종면접은 보다 말을 잘 할 수 있었던 것 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;느낀점&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;사실 지금까지 오는 동안에도 최종면접과 신입사원 교육 등 재밌고 두근거리는 일정이 있었지만, 
+Feel the TOAST 전형을 쓴 이유는 정말 남다르고 기억에 남는 채용전형이기 때문이다.
+인턴이나 회사생활을 해보지 않은 나와 같은 사람에게는 가장 먼저 회사 내부 간접 체험과 
+동시에 기술적으로 내 위치가 남들과 비교해서 어느 수준이 되는지 대략적으로 느끼게 해
+ 주었고, 앞으로 어떻게 준비해야하고 보충해야 하는지 스스로 느낄 수 있는 시간이었다.
+앞으로 기회가 된다면 일 년간 열심히 노력해서 내년 Feel the TOAST 전형에 오신 지원자 분들 
+앞에서 가이드 할 수 있는 기회가 주어졌으면 좋겠다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 </description>
         <pubDate>Tue, 12 Jan 2016 00:00:00 +0900</pubDate>
-        <link>/tech/2016/01/12/book-style-doc.html</link>
-        <guid isPermaLink="true">/tech/2016/01/12/book-style-doc.html</guid>
+        <link>/thinking/2016/01/12/feel-the-toast.html</link>
+        <guid isPermaLink="true">/thinking/2016/01/12/feel-the-toast.html</guid>
         
-        <category>facebook</category>
+        <category>feel</category>
         
+        <category>the</category>
         
-        <category>tech</category>
-        
-      </item>
-    
-      <item>
-        <title>A Jekyll Theme Named Book</title>
-        <description>&lt;p&gt;Simple is better, but many themes are over designed. So, &lt;a href=&quot;https://github.com/kkninjae/book&quot;&gt;Book&lt;/a&gt; is built.&lt;/p&gt;
-
-&lt;h2 id=&quot;get-started&quot;&gt;Get started&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;fork the &lt;a href=&quot;https://github.com/kkninjae/book/fork&quot;&gt;repo&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;clone &lt;code class=&quot;highlighter-rouge&quot;&gt;git clone https://github.com/username/book&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve -w&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt; should be ready.&lt;/p&gt;
-
-&lt;h2 id=&quot;customize&quot;&gt;Customize&lt;/h2&gt;
-
-&lt;h3 id=&quot;configyml-file&quot;&gt;_config.yml file&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;title: site name&lt;/li&gt;
-  &lt;li&gt;description: site description&lt;/li&gt;
-  &lt;li&gt;url: site url&lt;/li&gt;
-  &lt;li&gt;avatar: absolute path of avatar which is a picture (140px * 140px) on the index page.&lt;/li&gt;
-  &lt;li&gt;favicon: absolute path of site favicon&lt;/li&gt;
-  &lt;li&gt;google_analytics: id for google analystics&lt;/li&gt;
-  &lt;li&gt;disqus_shortname: shortname of disque comment system&lt;/li&gt;
-  &lt;li&gt;about: content on the about page.
-you can write more than one paragraph but the format should be like the original one.
-the special word &lt;code class=&quot;highlighter-rouge&quot;&gt;?link?&lt;/code&gt; will be replaced by one of the links which are listed under links.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;warning&quot;&gt;warning&lt;/h3&gt;
-
-&lt;p&gt;Please do not delete the first two lines of style.css file.&lt;/p&gt;
-
-&lt;h2 id=&quot;end&quot;&gt;End.&lt;/h2&gt;
-
-&lt;p&gt;If you like it, &lt;a href=&quot;https://github.com/kkninjae/book&quot;&gt;star&lt;/a&gt; it :).&lt;/p&gt;
-
-&lt;p&gt;If you have a problem, &lt;a href=&quot;https://github.com/kkninjae/book/issues&quot;&gt;github issue is ready&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 28 Aug 2015 00:00:00 +0900</pubDate>
-        <link>/blog/2015/08/28/jekyll-theme-book.html</link>
-        <guid isPermaLink="true">/blog/2015/08/28/jekyll-theme-book.html</guid>
-        
-        <category>english</category>
+        <category>toast</category>
         
         
-        <category>blog</category>
+        <category>thinking</category>
         
       </item>
     
