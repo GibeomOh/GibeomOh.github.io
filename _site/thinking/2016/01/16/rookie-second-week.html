@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- head -->
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>신입사원 교육 2주차 회고</title>
+
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="" />
+<link rel="icon" type="image/x-icon" href="" />
+
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="Book" href="/feed.xml" />
+
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="/assets/css/solarized_dark.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- script -->
+    <script src="/assets/js/jquery-1.11.3.min.js"></script>
+    <script src="/assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/assets/js/script.js"></script>
+
+    
+  </head>
+  <body>
+
+    <div class="footer-clear post-wrapper">
+
+  <!-- post archive trigger -->
+  <div class="post-archive-trigger">
+    <div class="post-archive-icon"></div>
+  </div>
+
+  <!-- post archive -->
+  <div class="post-archive">
+    <div class="post-archive-iterms">
+      
+      
+      <a class="post-archive-iterm" href="/study/2016/01/17/OAuth-facebook.html">
+        <span class="post-archive-date">2016-01-17</span>
+        <span class="post-archive-title ">OAuth 정리</span>
+      </a>
+      
+      
+      <a class="post-archive-iterm" href="/thinking/2016/01/16/rookie-second-week.html">
+        <span class="post-archive-date">2016-01-16</span>
+        <span class="post-archive-title checked">신입사원 교육 2주차 회고</span>
+      </a>
+      
+      
+      <a class="post-archive-iterm" href="/thinking/2016/01/12/feel-the-toast.html">
+        <span class="post-archive-date">2016-01-12</span>
+        <span class="post-archive-title ">Feel the TOAST를 마치고..</span>
+      </a>
+      
+    </div>
+  </div>
+
+  <!-- post header -->
+  <div class="post-header">
+    <h1>신입사원 교육 2주차 회고</h1>
+    <span>2016-01-16</span>
+  </div>
+
+  <!-- post content -->
+  
+
+  <div class="post-content english">
+    <h2 id="summary">Summary</h2>
+<p>2016년 1월 16일, 신입사원 교육 2주차 회고</p>
+
+<h2 id="section">뉴스 서비스 기획</h2>
+<blockquote>
+  <p>개발자로서 첫 발을 내딛기 위한 신입사원 교육 2주차, 각종 오리엔테이션으로 재미있었던 1주가 지나고 드디어 프로그래밍을 위한 과제가 주어졌다.
+루키사랑TF 2조의 과제는 뉴스 서비스 기획, 개발자로서 기획 단계는 좀 멀게만 느껴졌던 부분이라 처음에는 어려움을 느꼈다. 뉴스 서비스의 목표부터 
+UI, 기능, 개발 기간 등 전체적으로 다양한 분야별로 생각하고 결론을 내리고 기획에 옮겨가는 과정이 쉽지 않았다. 특히 이번 기획단계에서 
+많이 느꼈던 것은 제대로 된 기획이란, 어느 특정 분야에만 국한된 것이 아니라 다방면으로 지식을 갖추고 있어야 하며, 성공으로 이끌어내기 위해 
+새로운 아이디어를 끊임없이 창출해야 한다고 생각이 들었다. 이번 기획을 통해 스스로 좋았던 점과 아쉬웠던 점, 앞으로 다짐을 아래에 적어봤다.</p>
+</blockquote>
+
+<h2 id="section-1">기획에 대한 피드백</h2>
+<ul>
+  <li>UP/DOWN 기능에서 어뷰저를 막기 위한 기능이 있는가?</li>
+  <li>기사를 어떻게 가져올 것인가?</li>
+  <li>처음 등록된 기사는 순위에 들지 못하는데 이를 어떻게 처리할 것인가</li>
+  <li><code class="highlighter-rouge">클라우드 개발팀 정기효 전임</code> : 노선도의 경우에 환승역 처리를 할때에 교차가 되는 2개의 노선이 멀리 있거나 해당 노선 사이에 다른 노선이 있는 경우 어떻게 처리할 것인가?</li>
+  <li>뉴스 데이터를 크롤링 할때에 어떻게 처리할 것인가?</li>
+  <li><code class="highlighter-rouge">공통기술개발팀 이승재</code> : consumer에만 너무 집중되어 있는 기획인것 같다. provider에게 주어지는 혜택은 무엇인가?</li>
+  <li><code class="highlighter-rouge">B-Flat개발랩 백창열 수석</code> : 4명이서 2주간 개발하기에는 지금한 기획만으로도 내용이 너무 많다. 피드백 내용에 너무 흔들리지 말고 기획한 것에 대해서 생각해서 끊어야 한다.</li>
+  <li><code class="highlighter-rouge">[멘토]게임포털개발팀 정하연 선임</code>
+    <ul>
+      <li>노선도에서 키워드를 클릭해서 넘어간 경우와 메인의 키워드랭킹에서 클릭해서 넘어갔을 경우에 나오는 목록창이 똑같다. 이에 대한 추가 처리가 있었으면 좋겠다.</li>
+      <li>전체적인 구조, 기능에 대한 부분이 빠져서 전체적인 이해도가 떨어지는것 같다.</li>
+    </ul>
+  </li>
+  <li>크롤링을 할때에 해당 뉴스사이트의 html이 변경되거나 하였을때 크롤러가 정상적으로 작동하기 어려운 구조인것 같다. 이런 이슈를 어떻게 처리할 것인가?</li>
+</ul>
+
+<h2 id="section-2">좋았던 점</h2>
+<ul>
+  <li>지하철 노선도와 키워드를 합해서 키워드 노선도라는 아이디어를 제시할 수 있었던 점</li>
+  <li>같은 팀원들과 생각을 공유하고 의논을 통해 새로운 것을 만들어간다는 것에 대한 즐거움</li>
+</ul>
+
+<h2 id="section-3">아쉬웠던 점</h2>
+<ul>
+  <li>웹 기술에 대한 지식 부족으로 기술적인 부분에서 의견을 제시를 못한 점</li>
+  <li>모르는 부분에 대한 대화가 오고갈 때, 자신있게 질문하지 못한 점</li>
+</ul>
+
+<h2 id="section-4">앞으로 다짐</h2>
+<blockquote>
+  <p>웹으로 뉴스 서비스를 기획하는데, 웹에 대한 기술이 부족해 팀원들에게 많은 도움이 되지
+ 못한 게 너무 아쉬웠다. 앞으로 남은 7주간 열심히 공부해서 팀원들에게 도움이 되고 
+ 스스로도 많은 발전이 있는 기술교육 기간으로 만들어 갈 것이다.</p>
+</blockquote>
+
+  </div>
+
+  <!-- post navigator -->
+  <div class="post-nav">
+    
+    <a class="post-nav-previous"href="/thinking/2016/01/12/feel-the-toast.html">Feel the TOAST를 마치고..</a>
+    
+
+    
+    <div class="post-nav-sep"></div>
+    
+
+    
+    <a class="post-nav-next" href="/study/2016/01/17/OAuth-facebook.html">OAuth 정리</a>
+    
+  </div>
+
+  <!-- facebook comment system -->
+  <div class="post-comment">
+    <!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your like button code -->
+<div class="fb-like" 
+	data-href="http://GibeomOh.github.io/thinking/2016/01/16/rookie-second-week.html" 
+	data-layout="standard" 
+	data-action="like" 
+	data-show-faces="true">
+</div>
+
+<!-- Your comment code -->
+<div class="fb-comments" data-href="http://GibeomOh.github.io/thinking/2016/01/16/rookie-second-week.html" data-numposts="5">
+</div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+  <span>&copy;</span>
+  <span><script type="text/javascript">document.write(new Date().getFullYear());</script></span>
+  <a class="link-1" href="/">Book</a>
+  <br />
+  <span>NHNEnt. Second Assignment with <a class="link-1" href="https://gibeomoh.github.io/">GibeomOh</a>
+  </span>
+</div>
+
+
+</div>
+
+
+  </body>
+</html>

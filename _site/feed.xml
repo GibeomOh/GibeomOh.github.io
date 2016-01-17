@@ -5,9 +5,236 @@
     <description>A simple Jekyll theme</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Jan 2016 01:48:33 +0900</pubDate>
-    <lastBuildDate>Wed, 13 Jan 2016 01:48:33 +0900</lastBuildDate>
+    <pubDate>Sun, 17 Jan 2016 18:54:44 +0900</pubDate>
+    <lastBuildDate>Sun, 17 Jan 2016 18:54:44 +0900</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>OAuth 정리</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;OAuth의 개념과 Facebook 연동 예제를 통해 간략하게 알아본다.&lt;/p&gt;
+
+&lt;h2 id=&quot;oauth-&quot;&gt;OAuth 란?&lt;/h2&gt;
+&lt;p&gt;OAuth는 사용자가 소유하고 있는 리소스에 제한된 액세스를 서드파티 클라이언트에게 부여할 수 
+있도록 새롭게 등장한 웹 표준.&lt;/p&gt;
+
+&lt;p&gt;OAuth는 사용자가 제한된 기능을 갖춘 토큰을 발행하여 애플리케이션과 데이터에 대한 제한된 액세스를 부여할 수 있음.&lt;/p&gt;
+
+&lt;h2 id=&quot;json-&quot;&gt;잠깐, JSON 이란?&lt;/h2&gt;
+&lt;p&gt;JSON(JavaScript Object Notation)은 속성-값 쌍으로 이루어진 데이터 오브젝트를 전달하기 위해 
+인간이 읽을 수 있는 텍스트를 사용하는 개방형 표준 포맷이다.&lt;/p&gt;
+
+&lt;p&gt;비동기 브라우저/서버 통신 (AJAJ)을 위해, 넓게는 XML(AJAX가 사용)을 대체하는 주요 데이터 포맷이다.&lt;/p&gt;
+
+&lt;p&gt;특히, 인터넷에서 자료를 주고 받을 때 그 자료를 표현하는 방법으로 알려져 있다. 
+자료의 종류에 큰 제한은 없으며, 특히 컴퓨터 프로그램의 변수값을 표현하는 데 적합하다.&lt;/p&gt;
+
+&lt;p&gt;본래는 자바스크립트 언어로부터 파생되어 자바스크립트의 구문 형식을 따르지만 언어 독립형 데
+이터 포맷이다.&lt;/p&gt;
+
+&lt;p&gt;즉, 프로그래밍 언어나 플랫폼에 독립적이므로, 구문 분석 및 JSON 데이터 생성을 
+위한 코드는 C, C++, C#, 자바, 자바스크립트, 펄, 파이썬 등 수많은 프로그래밍 언어에서 쉽게 
+이용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;JSON은 두개의 구조를 기본으로 두고 있다:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;name/value 형태의 쌍으로 collection 타입. 다양한 언어들에서, 이는 object, record, 
+struct(구조체), dictionary, hash table, 키가 있는 list, 또는 연상배열로서 실현 되었다.&lt;/li&gt;
+  &lt;li&gt;값들의 순서화된 리스트. 대부분의 언어들에서, 이는 array, vector, list, 또는 sequence로서 
+실현 되었다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;oauth--1&quot;&gt;OAuth의 용어&lt;/h2&gt;
+&lt;p&gt;Service Provider: 자원을 제공하는 웹서비스. 트위터 또는 페이스북 서비스를 의미.&lt;/p&gt;
+
+&lt;p&gt;Consumer: 서비스 프로바이더의 자원에 접근하는 서드파티 웹사이트/애플리케이션.&lt;/p&gt;
+
+&lt;p&gt;Protected Resource: 서비스 프로바이더가 보유한 데이터. 트윗글과 팔로워 목록 등과 같은 데이터
+Consumer Key/Secret: 서비스 프로바이더는 자신들의 서비스에 서드파티들이 접근할 수 있도록 
+하는데, 이때 각 서드파티들을 고유하게 식별하기 위한 값이 Consumer Key 이며, 그에 대한 확인을 
+위한 값이 Consumer Secret 이다. (아이디/비밀번호와 유사)&lt;/p&gt;
+
+&lt;p&gt;Request Token: 액세스 토큰과 교환하기 위한 사용자의 승인이 떨어지지 않은 토큰. 토큰은 key와 
+secret으로 구성.&lt;/p&gt;
+
+&lt;p&gt;Access Token: 사용자에 의해 승인된 토큰. 이 토큰을 소유하면 해당 사용자의 자원을 사용할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;OAuth Parameter: OAuth 인증을 위해 필요한 파라미터 값. oauth_라는 접두어로 시작.&lt;/p&gt;
+
+&lt;h2 id=&quot;oauth--&quot;&gt;OAuth의 간략한 흐름&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Service Provider가 제공하는 Request Token URL에 접속하여, Request Token을 요청하여 얻는다. 
+이 값은 Access Token과 교환하기 위한 값이며, 아직은 사용자의 승인이 되지 않은 토큰 값이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Service Provider가 제공하는 Authorize URL에 접속하면서 Request Token 값을 전달하면, 
+사용자의 인증페이지를 볼 수 있게 된다. 사용자가 (로그인을 하고) 접손 허용을 하면, Verifier 값을 
+얻을 수 있게 된다.
+(이 때, Consumer가 웹서비스 또는 애플리케이션인지에 따라 Verifier 값을 다르게 수신하게 된다.
+웹서비스라면, Service Provider에게 제공한 callback 주소로 리다이렉트 되면서 Verifier가 
+전달되며, 애플리케이션이면, 리다이렉션 없이 pincode를 발급해준다. 이 pincode를 추출하여 
+Verifier로 사용한다.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Service Provider가 제공하는 Access Token URL로 접속하여, Request Token과 Verifier를 함께 
+전달하면 Access Token을 얻을 수 있게 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;획득한 Access Token을 사용자의 계정에 따라 저장하여, 이후에 자원에 접근하기 위한 값으로 
+사용할 수 있다.
+&lt;img src=&quot;http://cfile25.uf.tistory.com/original/176175494D1DB1A61BD40C&quot; alt=&quot;OAuth 흐름&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;oauth-20&quot;&gt;페이스북 로그인 연동 OAuth 2.0&lt;/h2&gt;
+&lt;p&gt;웹사이트를 참고하면서 로그인 연동을 시험해보자.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;먼저 페이스북에 앱을 만들고 로그인 할 수 있는 앱아이디와 시크릿 코드를 발급받는다.
+&lt;a href=&quot;https://developers.facebook.com/&quot;&gt;Facebook 개발자&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;앱을 적용할 사이트의 주소를 입력한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;만든 앱의 Settings에서 연락 이메일과 정보를 입력한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Status &amp;amp; Review 화면에서 
+Do you want to make this app and all its live features available to the general public?
+오른쪽 버튼을 YES로 설정한다.
+만든 앱을 모든 사용자가 사용할 수 있게 배포하는 설정이다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;여기까지 진행했다면 우리가 만든 앱으로 페이스북 사용자가 로그인 할 수 있는 준비가 됬다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;앱의 Dashboard 탭에서 Get Started with the Facebook SDK 를 통해 코드를 받을 수 있다.
+Choose a flatform을 누르고 웹사이트를 클릭한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;자바 스크립트를 통한 로그인 구현&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;window.fbAsyncInit = function() {
+   FB.init({
+      appId      : &#39;your-app-id&#39;,
+      xfbml      : true,
+      version    : &#39;v2.5&#39;
+   });
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = &quot;//connect.facebook.net/en_US/sdk.js&quot;;
+   fjs.parentNode.insertBefore(js, fjs);
+}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;로그인 버튼을 눌렀을 때&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Only works after `FB.init` is called
+function myFacebookLogin() {
+   FB.login(function(){}, {scope: &#39;publish_actions&#39;});
+}
+
+&amp;lt;button onclick=&quot;myFacebookLogin()&quot;&amp;gt;Login with Facebook&amp;lt;/button&amp;gt;
+
+FB.login(function(){
+   // Note: The call will only work if you accept the permission request
+   FB.api(&#39;/me/feed&#39;, &#39;post&#39;, {message: &#39;Hello, world!&#39;});
+}, {scope: &#39;publish_actions&#39;});
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;출처&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.facebook.com/docs/javascript/examples&quot;&gt;개발자를 위한 Facebook&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://www.json.org/json-ko.html&quot;&gt;JSON 개요&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://ko.wikipedia.org/wiki/JSON&quot;&gt;위키백과 - JSON&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://blog.naver.com/yapsoft/220125205511&quot;&gt;페이스북 로그인 연동 OAuth 2.0 인증, 얍소프트의 야무진 블로그&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://hiddenviewer.tistory.com/16&quot;&gt;OAuth의 개념과 대략적인 흐름, 로그의 노트&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 17 Jan 2016 00:00:00 +0900</pubDate>
+        <link>/study/2016/01/17/OAuth-facebook.html</link>
+        <guid isPermaLink="true">/study/2016/01/17/OAuth-facebook.html</guid>
+        
+        <category>OAuth</category>
+        
+        
+        <category>study</category>
+        
+      </item>
+    
+      <item>
+        <title>신입사원 교육 2주차 회고</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;2016년 1월 16일, 신입사원 교육 2주차 회고&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;뉴스 서비스 기획&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;개발자로서 첫 발을 내딛기 위한 신입사원 교육 2주차, 각종 오리엔테이션으로 재미있었던 1주가 지나고 드디어 프로그래밍을 위한 과제가 주어졌다.
+루키사랑TF 2조의 과제는 뉴스 서비스 기획, 개발자로서 기획 단계는 좀 멀게만 느껴졌던 부분이라 처음에는 어려움을 느꼈다. 뉴스 서비스의 목표부터 
+UI, 기능, 개발 기간 등 전체적으로 다양한 분야별로 생각하고 결론을 내리고 기획에 옮겨가는 과정이 쉽지 않았다. 특히 이번 기획단계에서 
+많이 느꼈던 것은 제대로 된 기획이란, 어느 특정 분야에만 국한된 것이 아니라 다방면으로 지식을 갖추고 있어야 하며, 성공으로 이끌어내기 위해 
+새로운 아이디어를 끊임없이 창출해야 한다고 생각이 들었다. 이번 기획을 통해 스스로 좋았던 점과 아쉬웠던 점, 앞으로 다짐을 아래에 적어봤다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;기획에 대한 피드백&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;UP/DOWN 기능에서 어뷰저를 막기 위한 기능이 있는가?&lt;/li&gt;
+  &lt;li&gt;기사를 어떻게 가져올 것인가?&lt;/li&gt;
+  &lt;li&gt;처음 등록된 기사는 순위에 들지 못하는데 이를 어떻게 처리할 것인가&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;클라우드 개발팀 정기효 전임&lt;/code&gt; : 노선도의 경우에 환승역 처리를 할때에 교차가 되는 2개의 노선이 멀리 있거나 해당 노선 사이에 다른 노선이 있는 경우 어떻게 처리할 것인가?&lt;/li&gt;
+  &lt;li&gt;뉴스 데이터를 크롤링 할때에 어떻게 처리할 것인가?&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;공통기술개발팀 이승재&lt;/code&gt; : consumer에만 너무 집중되어 있는 기획인것 같다. provider에게 주어지는 혜택은 무엇인가?&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;B-Flat개발랩 백창열 수석&lt;/code&gt; : 4명이서 2주간 개발하기에는 지금한 기획만으로도 내용이 너무 많다. 피드백 내용에 너무 흔들리지 말고 기획한 것에 대해서 생각해서 끊어야 한다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[멘토]게임포털개발팀 정하연 선임&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;노선도에서 키워드를 클릭해서 넘어간 경우와 메인의 키워드랭킹에서 클릭해서 넘어갔을 경우에 나오는 목록창이 똑같다. 이에 대한 추가 처리가 있었으면 좋겠다.&lt;/li&gt;
+      &lt;li&gt;전체적인 구조, 기능에 대한 부분이 빠져서 전체적인 이해도가 떨어지는것 같다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;크롤링을 할때에 해당 뉴스사이트의 html이 변경되거나 하였을때 크롤러가 정상적으로 작동하기 어려운 구조인것 같다. 이런 이슈를 어떻게 처리할 것인가?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;좋았던 점&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;지하철 노선도와 키워드를 합해서 키워드 노선도라는 아이디어를 제시할 수 있었던 점&lt;/li&gt;
+  &lt;li&gt;같은 팀원들과 생각을 공유하고 의논을 통해 새로운 것을 만들어간다는 것에 대한 즐거움&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;아쉬웠던 점&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;웹 기술에 대한 지식 부족으로 기술적인 부분에서 의견을 제시를 못한 점&lt;/li&gt;
+  &lt;li&gt;모르는 부분에 대한 대화가 오고갈 때, 자신있게 질문하지 못한 점&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;앞으로 다짐&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;웹으로 뉴스 서비스를 기획하는데, 웹에 대한 기술이 부족해 팀원들에게 많은 도움이 되지
+ 못한 게 너무 아쉬웠다. 앞으로 남은 7주간 열심히 공부해서 팀원들에게 도움이 되고 
+ 스스로도 많은 발전이 있는 기술교육 기간으로 만들어 갈 것이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 16 Jan 2016 00:00:00 +0900</pubDate>
+        <link>/thinking/2016/01/16/rookie-second-week.html</link>
+        <guid isPermaLink="true">/thinking/2016/01/16/rookie-second-week.html</guid>
+        
+        <category>rookie</category>
+        
+        
+        <category>thinking</category>
+        
+      </item>
     
       <item>
         <title>Feel the TOAST를 마치고..</title>
