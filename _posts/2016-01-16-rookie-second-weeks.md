@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 신입사원 교육 2주차 회고
+title: BaseCamp 2주차 회고
 date: 2016-01-16
 tags: rookie
 category: thinking
