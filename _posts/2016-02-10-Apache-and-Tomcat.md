@@ -55,7 +55,7 @@ Tomcat-Apache plugin인 mod_jk를 사용해서 Apach를 연동하는 법을 알�
 
 
          JkMount /*.do worker1
-		 JkMount /*.jsp worker1
+         JkMount /*.jsp worker1
          ...
 		 
 		 
