@@ -54,8 +54,8 @@ Tomcat-Apache plugin인 mod_jk를 사용해서 Apach를 연동하는 법을 알�
 * <IfModule mod_jk.c> 태그 안에 JkMount을 통해 Apache 서버에서 Tomcat 서버로 요청을 전달할 수 있다.<br>
 
 
-         JkMount /*.do worker1
-         JkMount /*.jsp worker1
+         JkMount /*.do worker1<br>
+         JkMount /*.jsp worker1<br>
          ...
 		 
 		 
