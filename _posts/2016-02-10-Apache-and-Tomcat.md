@@ -42,8 +42,9 @@ Tomcat과 같은 웹 애플리케이션 서버를 활용해야 한다.
 ---
 Apache와 Tomcat을 연동하기 위해서는 mod_jk와 proxy를 이용하는 방법이 있다.
 Tomcat-Apache plugin인 mod_jk를 사용해서 Apach를 연동하는 법을 알아보자.
-* Apache Tomcat Connector를 다운 받는다. (http://tomcat.apache.org/connectors-doc/)
 
+
+* Apache Tomcat Connector를 다운 받는다. (http://tomcat.apache.org/connectors-doc/)
 
         cd /etc/httpd/modules
         wget http://www.apache.org/dist/tomcat/tomcat-connectors/jk/binaries/linux/jk-1.2.28/i586/mod_jk-1.2.28-httpd-2.2.X.so
@@ -52,10 +53,9 @@ Tomcat-Apache plugin인 mod_jk를 사용해서 Apach를 연동하는 법을 알�
 		
 * <IfModule mod_jk.c> 태그 안에 JkMount을 통해 Apache 서버에서 Tomcat 서버로 요청을 전달할 수 있다.
 
-
         JkMount /*.do worker1
-		JkMount /*.jsp worker1
-		...
+        JkMount /*.jsp worker1
+        ...
 식으로 작성하면 아파치 서버로 들어오는 요청의 주소가 *.do나 *.jsp라면 톰캣으로 요청을 전달하게 된다.
 
 
