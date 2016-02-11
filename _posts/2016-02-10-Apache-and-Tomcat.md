@@ -46,16 +46,16 @@ Tomcat-Apache plugin인 mod_jk를 사용해서 Apach를 연동하는 법을 알�
 
 * Apache Tomcat Connector를 다운 받는다. (http://tomcat.apache.org/connectors-doc/)
 
-        cd /etc/httpd/modules
-        wget http://www.apache.org/dist/tomcat/tomcat-connectors/jk/binaries/linux/jk-1.2.28/i586/mod_jk-1.2.28-httpd-2.2.X.so
-        ln -s mod_jk-1.2.28-httpd-2.2.X.so mod_jk.so
+         cd /etc/httpd/modules
+         wget http://www.apache.org/dist/tomcat/tomcat-connectors/jk/binaries/linux/jk-1.2.28/i586/mod_jk-1.2.28-httpd-2.2.X.so
+         ln -s mod_jk-1.2.28-httpd-2.2.X.so mod_jk.so
 
 		
 * <IfModule mod_jk.c> 태그 안에 JkMount을 통해 Apache 서버에서 Tomcat 서버로 요청을 전달할 수 있다.
 
-        JkMount /*.do worker1
-        JkMount /*.jsp worker1
-        ...
+         JkMount /*.do worker1
+		 JkMount /*.jsp worker1
+         ...
 식으로 작성하면 아파치 서버로 들어오는 요청의 주소가 *.do나 *.jsp라면 톰캣으로 요청을 전달하게 된다.
 
 
@@ -68,11 +68,13 @@ Tomcat-Apache plugin인 mod_jk를 사용해서 Apach를 연동하는 법을 알�
 우리는 임의의 디렉토리에 웹 애플리케이션을 위치시키고 싶을 때  server.xml에서 설정 할 수 있지만 
 자카르타에서 비추하는 방법이기 때문에 host-manager.xml, manager.xml 등의 파일을 저장해서 이름을 바꾸고
 안에 내용중 docBase와 path를 바꾸하고 한다.
-		<Context path="/myTest" docBase="C:\myTest" debug="0" privileged="true" reloadable="true">
-		<Logger className="org.apache.catalina.logger.FileLogger" directory="logs"  prefix="localhost_log." suffix=".txt" timestamp="true"/>
-		</Context>
+		 <Context path="/myTest" docBase="C:\myTest" debug="0" privileged="true" reloadable="true">
+		 <Logger className="org.apache.catalina.logger.FileLogger" directory="logs"  prefix="localhost_log." suffix=".txt" timestamp="true"/>
+		 </Context>
+		 
 - path : 웹어플리케이션의 경로명(http://localhost/'요기 붙을 내용')
 - docBase : 웹어플리케이션이 위치한 폴더의 경로명(실제 경로)
+
 정리하면, Context는 특별한 Viertual Host에서 작동하는 하나의 Web Application 이고
 Web Application을 추가 하기 위해서는 <Host></Host> 사이에 <Context>를 추가하면 된다.
 		
