@@ -38,6 +38,38 @@ Tomcat과 같은 웹 애플리케이션 서버를 활용해야 한다.
 * Tomcat 5.5부터 Httpd의 native 모듈을 사용하기 때문에 동적인 모듈 뿐만 아니라
  정적 페이지 또한 처리가 가능하다고 한다. 그래서 성능상의 차이가 없다고 한다.
  
+아파치 서버 설정
+---
+Apache와 Tomcat을 연동하기 위해서는 mod_jk와 proxy를 이용하는 방법이 있다.
+Tomcat-Apache plugin인 mod_jk를 사용해서 Apach를 연동하는 법을 알아보자.
+1. Apache Tomcat Connector를 다운 받는다. (http://tomcat.apache.org/connectors-doc/)
+        cd /etc/httpd/modules
+        wget http://www.apache.org/dist/tomcat/tomcat-connectors/jk/binaries/linux/jk-1.2.28/i586/mod_jk-1.2.28-httpd-2.2.X.so
+        ln -s mod_jk-1.2.28-httpd-2.2.X.so mod_jk.so
+
+2. <IfModule mod_jk.c> 태그 안에 JkMount을 통해 Apache 서버에서 Tomcat 서버로 요청을 전달할 수 있다.
+        JkMount /*.do worker1
+		JkMount /*.jsp worker1
+		...
+식으로 작성하면 아파치 서버로 들어오는 요청의 주소가 *.do나 *.jsp라면 톰캣으로 요청을 전달하게 된다.
+
+톰캣 서버 설정
+---
+톰캣 서버 설정은 server.xml 파일에서 할 수 있다.
+파일을 들여다보면 Connector를 볼 수 있는데, Connector는 요청을 받고 응답을 리턴하는 endpoint이다.
+각 Connector는 요청을 처리하기 위해 연관된 Container에게 요청을 넘긴다.
+그 밑을 보면 Engine이 있는데, Engine은 적절한 Host(virtual host)로 처리를 넘기는 entry point이다.
+우리는 임의의 디렉토리에 웹 애플리케이션을 위치시키고 싶을 때  server.xml에서 설정 할 수 있지만 
+자카르타에서 비추하는 방법이기 때문에 host-manager.xml, manager.xml 등의 파일을 저장해서 이름을 바꾸고
+안에 내용중 docBase와 path를 바꾸하고 한다.
+		<Context path="/myTest" docBase="C:\myTest" debug="0" privileged="true" reloadable="true">
+		<Logger className="org.apache.catalina.logger.FileLogger" directory="logs"  prefix="localhost_log." suffix=".txt" timestamp="true"/>
+		</Context>
+- path : 웹어플리케이션의 경로명(http://localhost/'요기 붙을 내용')
+- docBase : 웹어플리케이션이 위치한 폴더의 경로명(실제 경로)
+정리하면, Context는 특별한 Viertual Host에서 작동하는 하나의 Web Application 이고
+Web Application을 추가 하기 위해서는 <Host></Host> 사이에 <Context>를 추가하면 된다.
+		
 
 출처
 ---
@@ -45,3 +77,5 @@ Tomcat과 같은 웹 애플리케이션 서버를 활용해야 한다.
 [OKKY: apache와 tomcat의 정확한 차이](http://okky.kr/article/196722)<br>
 [위키백과: 아파치 톰캣](https://ko.wikipedia.org/wiki/%EC%95%84%ED%8C%8C%EC%B9%98_%ED%86%B0%EC%BA%A3)<br>
 [Apache와 Tomcat의 역할](http://storyjava.tistory.com/96)<br>
+[mod_jk 사용법](http://jkkang.net/java/mod_jk/mod_jk_install.html)<br>
+[톰캣에 어플리케이션 추가하기!](http://blog.daum.net/_blog/BlogTypeView.do?blogid=090sk&vblogid=&beforePage=2&maxarticleno=5494233&minarticleno=5494233&maxregdt=20090101205621&minregdt=20090101205621&currentPage=1&listScale=20&viewKind=&dispkind=B2201&CATEGORYID=703968&categoryId=703968&articleno=&regdt=&date=&calv=&chgkey=FUOyxhxFyv5jAVvGlcs43Ji18l-4-pbKU2nYh4-pD950&totalcnt=5)<br>
