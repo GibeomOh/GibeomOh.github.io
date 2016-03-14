@@ -23,21 +23,25 @@ OpenStack 사이트의 원문을 해석해보면, OpenStack은 데이터 센터�
 
 ## OpenStack의 구성 요소
 ![](http://cfile8.uf.tistory.com/image/230F033656446B712FC2E7)
-- SWIFT: 사용자별로 저장공간을 나눠주는 스토리지 서비스(오브젝트 서비스)를 말한다. Swift-proxy, account, container, object로 구분된다. 디스크 드라이브의 위치로 파일을 참조한다는 기존의 생각과는 달리 개발자는 파일을 참조하는 고유 식별자를 이용하여 정보 저장 위치를 OpenStack이 결정하도록 할 수 있다. 개발자는 소프트웨어 뒤에 단일 시스템에서 용량에 대한 걱정을 하지 않아도 되며 확장에 용이하다는 장점이 있습니다. 또한 데이터가 서버나 네트워크의 장애시에도 자동으로 백업이 되는 장점이 있다.
-- KEYSTONE: OpenStack에서 제공하는 모든 서비스에 대한 인증 서비스를 제공한다. KEYSTONE 등록된 사용자들만 OpenStack을 사용할 수 있다.
-- NOVA: 인스턴스의 생성/삭제/메모리 관리를 수행하는 요소를 말한다. 여기서 인스턴스는 흔히 알고 있는 각각의 가상 컴퓨터를 말한다. 
-- NEUTRON: 인스턴스의 네트워크를 담당하는 부분
-- CINDER: Block Storage 를 관리하는 요소. 각각의 인스턴스의 저장소를 관리하는 것을 말한다.
-- GLANCE: 인스턴스의 운영체제에 해당하는 이미지를 관리한다. GLANCE에 있는 이미지를 이용하여 사용자들은 OS를 설치할 수 있다.
+ * SWIFT: 사용자별로 저장공간을 나눠주는 스토리지 서비스(오브젝트 서비스)를 말한다. Swift-proxy, account, container, object로 구분된다. 디스크 드라이브의 위치로 파일을 참조한다는 기존의 생각과는 달리 개발자는 파일을 참조하는 고유 식별자를 이용하여 정보 저장 위치를 OpenStack이 결정하도록 할 수 있다. 개발자는 소프트웨어 뒤에 단일 시스템에서 용량에 대한 걱정을 하지 않아도 되며 확장에 용이하다는 장점이 있습니다. 또한 데이터가 서버나 네트워크의 장애시에도 자동으로 백업이 되는 장점이 있다.
+ * KEYSTONE: OpenStack에서 제공하는 모든 서비스에 대한 인증 서비스를 제공한다. KEYSTONE 등록된 사용자들만 OpenStack을 사용할 수 있다.
+ * NOVA: 인스턴스의 생성/삭제/메모리 관리를 수행하는 요소를 말한다. 여기서 인스턴스는 흔히 알고 있는 각각의 가상 컴퓨터를 말한다. 
+ * NEUTRON: 인스턴스의 네트워크를 담당하는 부분
+ * CINDER: Block Storage 를 관리하는 요소. 각각의 인스턴스의 저장소를 관리하는 것을 말한다.
+ * GLANCE: 인스턴스의 운영체제에 해당하는 이미지를 관리한다. GLANCE에 있는 이미지를 이용하여 사용자들은 OS를 설치할 수 있다.
 
 ## 그 중 NOVA에 대해 알아보자
 nova는 openstack 초창기 모델부터 있었던 openstack의 필수 구성요소 중 하나다. (빨간색으로 표시된 부분이 nova의 영향을 받는 부분)
 ![](http://postfiles13.naver.net/20150805_156/junhyung17_1438753806687dBA0o_PNG/%B0%B3%B3%E4%B5%B5.png?type=w2)
-1. NOVA는 Dashboard나 커맨드 라인 명령어가 호출하는 nova-api로부터 시작된다.
-2. nova-api는 Queue를 통해 nova-compute에 인스턴스를 생성하는 명령어를 전달한다.
-3. nova-compute는 하이퍼바이저 라이브러리를 통해 하이퍼바이저에게 인스턴스를 생성하라는 명령어를 전달한다.
-4. 하이퍼바이저는 인스턴스를 생성한다.
-5. 생성된 인스턴스는 nova-console을 통해 사용자가 접근할 수 있게 된다.
+ 1. NOVA는 Dashboard나 커맨드 라인 명령어가 호출하는 nova-api로부터 시작된다.
+ 
+ 2. nova-api는 Queue를 통해 nova-compute에 인스턴스를 생성하는 명령어를 전달한다.
+ 
+ 3. nova-compute는 하이퍼바이저 라이브러리를 통해 하이퍼바이저에게 인스턴스를 생성하라는 명령어를 전달한다.
+ 
+ 4. 하이퍼바이저는 인스턴스를 생성한다.
+ 
+ 5. 생성된 인스턴스는 nova-console을 통해 사용자가 접근할 수 있게 된다.
 
 ### nova-api란?
 - Nova에서 중추적인 역할을 수행하는 데몬 
@@ -79,7 +83,7 @@ nova는 openstack 초창기 모델부터 있었던 openstack의 필수 구성요
 
 출처
 ---
-![openstack 구성 요소 알아보기 - Nova에 대하여](http://blog.naver.com/junhyung17/220258477631)
-![openstack](http://www.openstack.org/)
-![Nalee의 IT이야기](http://naleejang.tistory.com/101)
-![wiki: HypervisorSupportMatrix](https://wiki.openstack.org/wiki/HypervisorSupportMatrix)
+[openstack 구성 요소 알아보기 - Nova에 대하여](http://blog.naver.com/junhyung17/220258477631)
+[openstack](http://www.openstack.org/)
+[Nalee의 IT이야기](http://naleejang.tistory.com/101)
+[wiki: HypervisorSupportMatrix](https://wiki.openstack.org/wiki/HypervisorSupportMatrix)
